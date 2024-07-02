@@ -20,7 +20,7 @@ CarTest >> test001CarShiftGoesFromNeutralToFirstGear [
 
 	| aCar |
 	aCar:= Car initializeWithGearBox.
-	aCar shiftGear.
+	aCar shiftGearUp.
 	self assert: aCar gear equals: 1
 
 ]
@@ -30,8 +30,8 @@ CarTest >> test002CarShiftGoesFromNeutralToFirstToSecondGear [
 
 	| aCar |
 	aCar := Car initializeWithGearBox.
-	aCar shiftGear.
-	aCar shiftGear.
+	aCar shiftGearUp.
+	aCar shiftGearUp.
 
 	self assert: aCar gear equals: 2
 ]
@@ -41,14 +41,53 @@ CarTest >> test003ErrorWhenChangeIsGreaterThan5 [
 
 	| aCar |
 	aCar := Car initializeWithGearBox.
-	aCar shiftGear.
-	aCar shiftGear.
-	aCar shiftGear.
-	aCar shiftGear.
-	aCar shiftGear.
+	aCar shiftGearUp.
+	aCar shiftGearUp.
+	aCar shiftGearUp.
+	aCar shiftGearUp.
+	aCar shiftGearUp.
 
 	self
-		should: [ aCar shiftGear ]
+		should: [ aCar shiftGearUp ]
 		raise: Error
 		withMessage: 'You went too far'
+]
+
+{ #category : #tests }
+CarTest >> test004CarShiftGoesFromNeutralToFirstToNeutralGear [
+
+	| aCar |
+	aCar := Car initializeWithGearBox.
+	aCar shiftGearUp.
+	aCar shiftGearDown.
+	
+
+	self assert: aCar gear equals: 0
+]
+
+{ #category : #tests }
+CarTest >> test005CarShiftGoesFromNeutralToFirstToSecondToThirdToSecondToFirstGear [
+
+	| aCar |
+	aCar := Car initializeWithGearBox.
+	aCar shiftGearUp.
+	aCar shiftGearUp.
+	aCar shiftGearUp.
+	aCar shiftGearDown.
+	aCar shiftGearDown.
+	
+
+	self assert: aCar gear equals: 1
+]
+
+{ #category : #tests }
+CarTest >> test006ErrorWhenChangeIsSmallerThan0 [
+
+	| aCar |
+	aCar := Car initializeWithGearBox.
+
+	self
+		should: [ aCar shiftGearDown ]
+		raise: Error
+		withMessage: 'You cant go lower'
 ]

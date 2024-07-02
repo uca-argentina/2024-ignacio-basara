@@ -25,8 +25,15 @@ Car >> initializeWithGearBox [
 	gear := 0
 ]
 
+{ #category : #'as yet unclassified' }
+Car >> shiftGearDown [
+
+	gear = 0 ifTrue: [ Error signal: 'You cant go lower' ].
+	gear := gear - 1
+]
+
 { #category : #initialization }
-Car >> shiftGear [
+Car >> shiftGearUp [
 
 	gear = 5 ifTrue: [ Error signal: 'You went too far' ].
 	gear := gear + 1
