@@ -1,5 +1,5 @@
 Class {
-	#name : #Auto,
+	#name : #Car,
 	#superclass : #Object,
 	#instVars : [
 		'gear'
@@ -8,26 +8,26 @@ Class {
 }
 
 { #category : #initialization }
-Auto class >> initializeWithGearBox [
+Car class >> initializeWithGearBox [
 
 	^ self new initializeWithGearBox
 ]
 
-{ #category : #initialization }
-Auto >> gear [
+{ #category : #accessing }
+Car >> gear [
 
 	^ gear
 ]
 
 { #category : #initialization }
-Auto >> initializeWithGearBox [ 
+Car >> initializeWithGearBox [ 
 
 	gear := 0
 ]
 
 { #category : #initialization }
-Auto >> shiftGear [
+Car >> shiftGear [
 
-	gear = 5 ifTrue: [ Error signal: 'te pasaste de cambio' ].
+	gear = 5 ifTrue: [ Error signal: 'You went too far' ].
 	gear := gear + 1
 ]
