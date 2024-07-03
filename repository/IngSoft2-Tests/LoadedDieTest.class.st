@@ -18,7 +18,7 @@ LoadedDieTest >> test001WhenLoadedFaceIsOneItThrowsOne [
 { #category : #'as yet unclassified' }
 LoadedDieTest >> test002WhenLoadedFaceIsFourItThrowsFour [
 
-| aLoadedDieInFour aLoadedDieInSix |
-aLoadedDieInFour := LoadedDie in: 4.
-self assert: (aLoadedDieInFour throw) equals: 4.
+	| aLoadedDieInFour |
+	aLoadedDieInFour := LoadedDie in: 4.
+	self assert: aLoadedDieInFour throw equals: 4
 ]

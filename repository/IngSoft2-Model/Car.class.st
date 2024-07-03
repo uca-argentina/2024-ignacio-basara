@@ -22,13 +22,13 @@ Car >> gear [
 { #category : #initialization }
 Car >> initializeWithGearBox [ 
 
-	gear := 0
+	gear := 1
 ]
 
 { #category : #'as yet unclassified' }
 Car >> shiftGearDown [
 
-	gear = 0 ifTrue: [ Error signal: 'You cant go lower' ].
+	gear = 1 ifTrue: [ Error signal: 'You cant go lower' ].
 	gear := gear - 1
 ]
 

@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #tests }
-OilCellTest >> test001IfACarEntersAnOilCellAndGearIs0ShouldNotShiftDown [
+OilCellTest >> test001IfACarEntersAnOilCellAndGearIs1ShouldNotShiftDown [
 
 	| anOilCell aCar |
 	anOilCell := OilCell new.
@@ -14,7 +14,7 @@ OilCellTest >> test001IfACarEntersAnOilCellAndGearIs0ShouldNotShiftDown [
 	anOilCell enters: aCar.
 
 
-	self assert: aCar gear equals: 0
+	self assert: aCar gear equals: 1
 	
 ]
 
@@ -24,7 +24,6 @@ OilCellTest >> test002IfOilCellHasOneCarInSecondTheyShouldGoDownToFirst [
 	| anOilCell aCar |
 	anOilCell := OilCell new.
 	aCar := Car initializeWithGearBox.
-	aCar shiftGearUp.
 	aCar shiftGearUp.
 
 	anOilCell enters: aCar.

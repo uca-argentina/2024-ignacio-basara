@@ -27,6 +27,18 @@ LoadedDie >> initializeWith: aLoadedFace [
 LoadedDie >> loadedFace [  
 ]
 
+{ #category : #tests }
+LoadedDie >> test006ErrorWhenChangeIsSmallerThan1 [
+
+	| aCar |
+	aCar := Car initializeWithGearBox.
+
+	self
+		should: [ aCar shiftGearDown ]
+		raise: Error
+		withMessage: 'You cant go lower'
+]
+
 { #category : #'as yet unclassified' }
 LoadedDie >> throw [
 

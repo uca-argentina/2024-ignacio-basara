@@ -16,24 +16,24 @@ CarTest >> should: anErrorBlock raise: exceptionClass withMessage: anErrorMessag
 ]
 
 { #category : #tests }
-CarTest >> test001CarShiftGoesFromNeutralToFirstGear [
+CarTest >> test001CarShiftGoesFromFirstToSecondGear [
 
 	| aCar |
 	aCar:= Car initializeWithGearBox.
 	aCar shiftGearUp.
-	self assert: aCar gear equals: 1
+	self assert: aCar gear equals: 2
 
 ]
 
 { #category : #tests }
-CarTest >> test002CarShiftGoesFromNeutralToFirstToSecondGear [
+CarTest >> test002CarShiftGoesFromFirstToSecondToThirdGear [
 
 	| aCar |
 	aCar := Car initializeWithGearBox.
 	aCar shiftGearUp.
 	aCar shiftGearUp.
 
-	self assert: aCar gear equals: 2
+	self assert: aCar gear equals: 3
 ]
 
 { #category : #tests }
@@ -41,7 +41,6 @@ CarTest >> test003ErrorWhenChangeIsGreaterThan5 [
 
 	| aCar |
 	aCar := Car initializeWithGearBox.
-	aCar shiftGearUp.
 	aCar shiftGearUp.
 	aCar shiftGearUp.
 	aCar shiftGearUp.
@@ -54,26 +53,11 @@ CarTest >> test003ErrorWhenChangeIsGreaterThan5 [
 ]
 
 { #category : #tests }
-CarTest >> test004CarShiftGoesFromNeutralToFirstToNeutralGear [
+CarTest >> test004CarShiftGoesFromFirstToSecondToFirstGear [
 
 	| aCar |
 	aCar := Car initializeWithGearBox.
 	aCar shiftGearUp.
-	aCar shiftGearDown.
-	
-
-	self assert: aCar gear equals: 0
-]
-
-{ #category : #tests }
-CarTest >> test005CarShiftGoesFromNeutralToFirstToSecondToThirdToSecondToFirstGear [
-
-	| aCar |
-	aCar := Car initializeWithGearBox.
-	aCar shiftGearUp.
-	aCar shiftGearUp.
-	aCar shiftGearUp.
-	aCar shiftGearDown.
 	aCar shiftGearDown.
 	
 
@@ -81,13 +65,16 @@ CarTest >> test005CarShiftGoesFromNeutralToFirstToSecondToThirdToSecondToFirstGe
 ]
 
 { #category : #tests }
-CarTest >> test006ErrorWhenChangeIsSmallerThan0 [
+CarTest >> test005CarShiftGoesFromFirstToSecondToThirdToFourToThirdToSecondGear [
 
 	| aCar |
 	aCar := Car initializeWithGearBox.
+	aCar shiftGearUp.
+	aCar shiftGearUp.
+	aCar shiftGearUp.
+	aCar shiftGearDown.
+	aCar shiftGearDown.
+	
 
-	self
-		should: [ aCar shiftGearDown ]
-		raise: Error
-		withMessage: 'You cant go lower'
+	self assert: aCar gear equals: 2
 ]

@@ -7,7 +7,7 @@ Class {
 { #category : #testing }
 OilCell >> enters: aCar [
 
-	aCar gear = 0 ifFalse: [ aCar shiftGearDown ].
+	aCar gear = 1 ifFalse: [ aCar shiftGearDown ].
 
 	cars add: aCar
 ]
