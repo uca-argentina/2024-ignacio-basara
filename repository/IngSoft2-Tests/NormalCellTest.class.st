@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #tests }
-NormalCellTest >> testIfCellHasNoCarsThenShouldNotBeOccupied [ [
+NormalCellTest >> test001IfCellHasNoCarsThenShouldNotBeOccupied [ [
 
 	| aCell |
 	aCell := NormalCell new.
@@ -15,7 +15,7 @@ NormalCellTest >> testIfCellHasNoCarsThenShouldNotBeOccupied [ [
 ]
 
 { #category : #tests }
-NormalCellTest >> testIfCellHasThreeCarsThenShouldBeOccupied [ 
+NormalCellTest >> test002IfCellHasThreeCarsThenShouldBeOccupied [ 
 
 	| aCell aCar anotherCar anotherAnotherCar |
 	aCell := NormalCell new.
@@ -29,7 +29,7 @@ NormalCellTest >> testIfCellHasThreeCarsThenShouldBeOccupied [
 ]
 
 { #category : #tests }
-NormalCellTest >> testIfCellHasTwoCarsAndRemoveCarFromCellThenShouldBeOccupied [ 
+NormalCellTest >> test003IfCellHasTwoCarsAndRemoveCarFromCellThenShouldBeOccupied [ 
 
 	| aCell aCar anotherCar |
 	aCell := NormalCell new.
