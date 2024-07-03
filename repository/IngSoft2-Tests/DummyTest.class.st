@@ -4,6 +4,13 @@ Class {
 	#category : #'IngSoft2-Tests'
 }
 
+{ #category : #'as yet unclassified' }
+DummyTest >> loadedFace [ 
+
+ | loadedFace |
+^loadedFace
+]
+
 { #category : #tests }
 DummyTest >> testBanana [
 
